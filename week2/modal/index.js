@@ -1,12 +1,10 @@
-const number = document.querySelector("#number");
-const increase = document.querySelector("#increase");
-const decrease = document.querySelector("#decrease");
+const open = document.getElementById("open");
+const close = document.getElementById("close");
+const modal = document.querySelector(".modalwrap");
 
-increase.addEventListener("click", () => {
-  const current = parseInt(number.innerText, 10);
-  number.innerText = current + 1;
-});
-decrease.addEventListener("click", () => {
-  const current = parseInt(number.innerText, 10);
-  number.innerText = current - 1;
-});
+open.onclick = () => {
+  modal.style.display = "flex";
+};
+close.onclick = () => {
+  modal.style.display = "none";
+};
