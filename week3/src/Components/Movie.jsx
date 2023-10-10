@@ -23,7 +23,7 @@ function Movie({ title, vote_average, poster_path, overview }) {
             <div className="title">{title}</div>
             <div>{overview}</div>
           </div>
-          <img src={posterURL + poster_path} alt="포스터 사진" />
+          <img src={posterURL + poster_path} alt="포스터 사진!" />
           <div className="movie-info">
             <div>{title}</div>
             <div>{vote_average}</div>
