@@ -4,7 +4,7 @@ import { AppContainer } from "./Components/Moive.style";
 
 function App() {
   return (
-    <AppContainer >
+    <AppContainer>
       {movies.results.map((item) => {
         return (
           <Movie
