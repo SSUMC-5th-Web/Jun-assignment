@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import { GlobalStyle } from "./Components/Movie.style";
 import App from "./App";
 

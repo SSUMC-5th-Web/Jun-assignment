@@ -38,7 +38,7 @@ export const Modal = styled.div`
   overflow: auto;
   text-overflow: ellipsis;
 `;
-export const MoiveTitle = styled.div`
+export const MovieTitle = styled.div`
   .title {
     margin-bottom: 20px;
   }

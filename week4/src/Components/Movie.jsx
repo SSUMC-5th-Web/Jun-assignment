@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
   Modal,
-  MoiveTitle,
+  MovieTitle,
   MovieContainer,
   MovieImg,
   MovieInfo,
@@ -26,7 +26,7 @@ function Movie({ title, vote_average, poster_path, overview }) {
           onMouseOut={handleMouseOut}
         >
           <Modal>
-            <MoiveTitle>{title}</MoiveTitle>
+            <MovieTitle>{title}</MovieTitle>
             <div>{overview}</div>
           </Modal>
           <MovieImg src={posterURL + poster_path} alt="포스터 사진!" />

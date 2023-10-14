@@ -1,6 +1,7 @@
 import Movie from "./Components/Movie";
 import { movies } from "./movieDummy";
 import { AppContainer } from "./Components/Movie.style";
+
 function App() {
   return (
     <AppContainer>
