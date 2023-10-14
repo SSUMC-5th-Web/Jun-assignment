@@ -1,10 +1,9 @@
 import Movie from "./Components/Movie";
 import { movies } from "./movieDummy";
-import { AppContainer } from "./Components/Moive.style";
 
 function App() {
   return (
-    <AppContainer>
+    <div className="app-container">
       {movies.results.map((item) => {
         return (
           <Movie
@@ -15,7 +14,7 @@ function App() {
           />
         );
       })}
-    </AppContainer>
+    </div>
   );
 }
 

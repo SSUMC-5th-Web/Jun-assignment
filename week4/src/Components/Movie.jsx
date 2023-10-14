@@ -1,11 +1,4 @@
 import React, { useState } from "react";
-import {
-  MovieContainer,
-  Modal,
-  MovieImg,
-  MovieInfo,
-  MovieTitle,
-} from "./Moive.style";
 
 const posterURL = "https://image.tmdb.org/t/p/w500/";
 
@@ -20,35 +13,37 @@ function Movie({ title, vote_average, poster_path, overview }) {
 
   return (
     <>
-     
-        {open ? (
-          <MovieContainer
+      {open ? (
+        <div
+          className="movie-container"
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          <div className="modal">
+            <div className="title">{title}</div>
+            <div>{overview}</div>
+          </div>
+          <img src={posterURL + poster_path} alt="포스터 사진!" />
+          <div className="movie-info">
+            <div>{title}</div>
+            <div>{vote_average}</div>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <div
+            className="movie-container"
             onMouseOver={handleMouseOver}
             onMouseOut={handleMouseOut}
           >
-            <Modal>
-              <MovieTitle className="title">{title}</MovieTitle>
-              <div>{overview}</div>
-            </Modal>
-            <MovieImg src={posterURL + poster_path} alt="포스터 사진!" />
-            <MovieInfo>
+            <img src={posterURL + poster_path} alt="포스터 사진" />
+            <div className="movie-info">
               <div>{title}</div>
               <div>{vote_average}</div>
-            </MovieInfo>
-          </MovieContainer>
-        ) : (
-          <MovieContainer
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-          >
-            <MovieImg src={posterURL + poster_path} alt="포스터 사진!" />
-            <MovieInfo>
-              <div>{title}</div>
-              <div>{vote_average}</div>
-            </MovieInfo>
-          </MovieContainer>
-        )}
-   
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
