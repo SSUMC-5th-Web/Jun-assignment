@@ -1,11 +1,9 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-export const Body = createGlobalStyle`
-  body {
-    background-color: #22254b;
-  }
+export const GlobalStyle = createGlobalStyle`
+body{background-color: #22254b;}
+     
 `;
-
 export const MovieContainer = styled.div`
   width: 250px;
   color: white;
@@ -21,6 +19,7 @@ export const AppContainer = styled.div`
   padding: 19px 40px;
   justify-content: center;
 `;
+
 export const MovieImg = styled.img`
   width: 100%;
 `;
@@ -40,5 +39,7 @@ export const Modal = styled.div`
   text-overflow: ellipsis;
 `;
 export const MovieTitle = styled.div`
-  margin-bottom: 20px;
+  .title {
+    margin-bottom: 20px;
+  }
 `;
