@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import {
-  MovieContainer,
   Modal,
+  MovieTitle,
+  MovieContainer,
   MovieImg,
   MovieInfo,
-  MovieTitle,
-} from "./Moive.style";
+} from "./Movie.style";
 
 const posterURL = "https://image.tmdb.org/t/p/w500/";
 
@@ -20,35 +20,33 @@ function Movie({ title, vote_average, poster_path, overview }) {
 
   return (
     <>
-     
-        {open ? (
-          <MovieContainer
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-          >
-            <Modal>
-              <MovieTitle className="title">{title}</MovieTitle>
-              <div>{overview}</div>
-            </Modal>
-            <MovieImg src={posterURL + poster_path} alt="포스터 사진!" />
-            <MovieInfo>
-              <div>{title}</div>
-              <div>{vote_average}</div>
-            </MovieInfo>
-          </MovieContainer>
-        ) : (
-          <MovieContainer
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-          >
-            <MovieImg src={posterURL + poster_path} alt="포스터 사진!" />
-            <MovieInfo>
-              <div>{title}</div>
-              <div>{vote_average}</div>
-            </MovieInfo>
-          </MovieContainer>
-        )}
-   
+      {open ? (
+        <MovieContainer
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          <Modal>
+            <MovieTitle>{title}</MovieTitle>
+            <div>{overview}</div>
+          </Modal>
+          <MovieImg src={posterURL + poster_path} alt="포스터 사진" />
+          <MovieInfo>
+            <div>{title}</div>
+            <div>{vote_average}</div>
+          </MovieInfo>
+        </MovieContainer>
+      ) : (
+        <MovieContainer
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          <MovieImg src={posterURL + poster_path} alt="포스터 사진" />
+          <MovieInfo>
+            <div>{title}</div>
+            <div>{vote_average}</div>
+          </MovieInfo>
+        </MovieContainer>
+      )}
     </>
   );
 }
