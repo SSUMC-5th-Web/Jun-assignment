@@ -18,7 +18,7 @@ export const MovieContainer = styled.div`
 export const AppContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 20px 40px;
+  padding: 19px 40px;
   justify-content: center;
 `;
 export const MovieImg = styled.img`
