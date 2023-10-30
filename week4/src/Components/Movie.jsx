@@ -29,7 +29,7 @@ function Movie({ title, vote_average, poster_path, overview }) {
             <MovieTitle>{title}</MovieTitle>
             <div>{overview}</div>
           </Modal>
-          <MovieImg src={posterURL + poster_path} alt="포스터 사진!" />
+          <MovieImg src={posterURL + poster_path} alt="포스터 사진" />
           <MovieInfo>
             <div>{title}</div>
             <div>{vote_average}</div>
