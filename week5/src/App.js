@@ -1,21 +1,18 @@
-import Movie from "./Components/Movie";
-import { movies } from "./movieDummy";
-import { AppContainer } from "./Components/Movie.style";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Header from "./Components/Header";
 
 function App() {
   return (
-    <AppContainer>
-      {movies.results.map((item) => {
-        return (
-          <Movie
-            title={item.title}
-            poster_path={item.poster_path}
-            vote_average={item.vote_average}
-            overview={item.overview}
-          />
-        );
-      })}
-    </AppContainer>
+    <div className="root-wrap">
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
+
 export default App;
