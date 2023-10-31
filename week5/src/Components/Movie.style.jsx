@@ -1,9 +1,6 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
-export const GlobalStyle = createGlobalStyle`
-body{background-color: #22254b;}
-     
-`;
+
 export const MovieContainer = styled.div`
   width: 250px;
   color: white;

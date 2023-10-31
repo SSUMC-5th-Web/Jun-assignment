@@ -1,7 +1,21 @@
-import React from 'react'
+import Movie from "../Components/Movie";
+import { movies } from "../movieDummy";
+import { AppContainer } from "../Components/Movie.style";
 
-export default function Movies() {
+function App() {
   return (
-    <div>Movies</div>
-  )
+    <AppContainer>
+      {movies.results.map((item) => {
+        return (
+          <Movie
+            title={item.title}
+            poster_path={item.poster_path}
+            vote_average={item.vote_average}
+            overview={item.overview}
+          />
+        );
+      })}
+    </AppContainer>
+  );
 }
+export default App;
