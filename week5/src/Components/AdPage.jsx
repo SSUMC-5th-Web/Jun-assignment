@@ -1,14 +1,11 @@
 import React from "react";
-import adImages from "../imges/Untitled.svg";
+import adImage from "../img/Untitled.svg";
 
-export default function AdPage() {
+
+export default function AdPage({on}) {
   return (
     <>
-      <adImages
-        src="adImages"
-        alt="광고 이미지"
-        style={{ width: "154px", height: "20px" }}
-      ></adImages>
+      <img src={adImage} alt="광고 이미지"></img>
       <div>안녕</div>
     </>
   );
