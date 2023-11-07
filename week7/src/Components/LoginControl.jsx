@@ -22,13 +22,12 @@ export default function LoginControl() {
     setIsLoggedIn(true);
     setlogText("로그인");
     setText("로그인 해주세요!");
-    navigate("/Login");
-    
+   
   };
   const handleLogoutClick = () => {
     setIsLoggedIn(false);
     setlogText("로그아웃");
-
+    navigate("/Login");  
     setText("환영합니다!");
   };
   return (
