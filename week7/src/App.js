@@ -20,7 +20,7 @@ function App() {
           <Route path="/celeb" element={<Celebirity />} />
           <Route path="/movie/:title" element={<MovieDetail />} />
           <Route path="/*" element={<NotFound />} />
-        
+          <Route path="/Login" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
     </div>
