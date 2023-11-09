@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 export const LoginInput = styled.input`
@@ -24,13 +24,27 @@ export const LoginLabel = styled.div`
 export const LoginButton = styled.button`
   width: 90%;
   margin-top: 30px;
-  background-color: #083358;
+  background-color: ${(props) => props.backgroundColor};
   color: white;
   padding: 20px;
   border-radius: 30px;
 `;
 
 export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [onBtn, setOnBtn] = useState(false);
+  const passwordRegExp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  useEffect(() => {
+    if (emailRegex.test(email) && passwordRegExp.test(password)) {
+      setOnBtn(true);
+    } else {
+      setOnBtn(false);
+    }
+  });
+  // Watch for changes in the email state and update onBtn accordingly
+
   return (
     <div>
       <h1>
@@ -39,14 +53,22 @@ export default function LoginPage() {
       </h1>
       <LoginForm>
         <LoginLabel>이메일 주소</LoginLabel>
-        <LoginInput type="email"></LoginInput>
+        <LoginInput
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        ></LoginInput>
 
         <LoginLabel>비밀번호</LoginLabel>
         <LoginInput
           type="password"
           placeholder="영문, 숫자, 특수문자 포합 8자 이상"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         ></LoginInput>
-        <LoginButton>확인</LoginButton>
+        <LoginButton style={{ backgroundColor: onBtn ? "#083358" : "grey" }}>
+          확인
+        </LoginButton>
       </LoginForm>
     </div>
   );
