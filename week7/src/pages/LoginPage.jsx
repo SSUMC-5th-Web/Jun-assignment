@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 export const LoginInput = styled.input`
   padding: 20px;
@@ -17,9 +18,15 @@ export const LoginForm = styled.div`
   margin-top: 10px;
 `;
 export const LoginLabel = styled.div`
-  width: 95%;
+  width: 94%;
   font-weight: 700;
   margin-top: 30px;
+`;
+export const LoginWarning = styled.div`
+  width: 94%;
+  font-weight: 700;
+
+  color: red;
 `;
 export const LoginButton = styled.button`
   width: 90%;
@@ -30,21 +37,27 @@ export const LoginButton = styled.button`
   border-radius: 30px;
 `;
 
-export default function LoginPage({ isLoggedIn, setIsLoggedIn }) {
+export default function LoginPage({ setIsLoggedIn }) {
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [onBtn, setOnBtn] = useState(false);
+  const [onWarning, setOnWarning] = useState(false);
   const passwordRegExp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   useEffect(() => {
-    if (emailRegex.test(email) && passwordRegExp.test(password)) {
-      setOnBtn(true);
-    } else {
+    if (emailRegex.test(email)) {
+      setOnWarning(true);
+      if(passwordRegExp.test(password)){
+        setOnBtn(true);
+      }
+    }else {
       setOnBtn(false);
     }
   }, [email, password]);
   const handleOn = () => {
-    setIsLoggedIn(!isLoggedIn);
+    setIsLoggedIn(false);
+    navigate("/");
   };
   return (
     <div>
@@ -59,7 +72,9 @@ export default function LoginPage({ isLoggedIn, setIsLoggedIn }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         ></LoginInput>
-
+        <LoginWarning>
+          {onWarning ? "" : "올바른 이메일을 입력해주세요"}
+        </LoginWarning>
         <LoginLabel>비밀번호</LoginLabel>
         <LoginInput
           type="password"
@@ -70,6 +85,7 @@ export default function LoginPage({ isLoggedIn, setIsLoggedIn }) {
         <LoginButton
           style={{ backgroundColor: onBtn ? "#083358" : "grey" }}
           onClick={handleOn}
+          disabled={!onBtn}
         >
           확인
         </LoginButton>

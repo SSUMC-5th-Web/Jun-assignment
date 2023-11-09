@@ -15,8 +15,9 @@ export const HeadTitle = styled.div`
   margin-right: 30px;
   cursor: pointer;
 `;
-export default function Header() {
+export default function Header(isLoggedIn, setIsLoggedIn) {
   const navigate = useNavigate();
+
   return (
     <Wrap>
       <img
@@ -33,7 +34,7 @@ export default function Header() {
       <HeadTitle onClick={() => navigate("/movie")}>영화</HeadTitle>
       <HeadTitle onClick={() => navigate("/tv")}>TV 프로그램</HeadTitle>
       <HeadTitle onClick={() => navigate("/celeb")}>인물</HeadTitle>
-      <LoginControl>로그인</LoginControl>
+      <LoginControl isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}>로그인</LoginControl>
     </Wrap>
   );
 }

@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="root-wrap">
       <BrowserRouter>
-        <Header setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}/>
+        <Header setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movie" element={<Movies />} />
@@ -22,7 +22,14 @@ function App() {
           <Route path="/celeb" element={<Celebirity />} />
           <Route path="/movie/:title" element={<MovieDetail />} />
           <Route path="/*" element={<NotFound />} />
-          <Route path="/Login" element={<LoginPage />} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
+          <Route
+            path="/Login"
+            element={
+              <LoginPage
+                setIsLoggedIn={setIsLoggedIn}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
