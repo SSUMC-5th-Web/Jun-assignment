@@ -30,7 +30,7 @@ export const LoginButton = styled.button`
   border-radius: 30px;
 `;
 
-export default function LoginPage() {
+export default function LoginPage({ isLoggedIn, setIsLoggedIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [onBtn, setOnBtn] = useState(false);
@@ -42,9 +42,10 @@ export default function LoginPage() {
     } else {
       setOnBtn(false);
     }
-  });
-  // Watch for changes in the email state and update onBtn accordingly
-
+  }, [email, password]);
+  const handleOn = () => {
+    setIsLoggedIn(!isLoggedIn);
+  };
   return (
     <div>
       <h1>
@@ -66,7 +67,10 @@ export default function LoginPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></LoginInput>
-        <LoginButton style={{ backgroundColor: onBtn ? "#083358" : "grey" }}>
+        <LoginButton
+          style={{ backgroundColor: onBtn ? "#083358" : "grey" }}
+          onClick={handleOn}
+        >
           확인
         </LoginButton>
       </LoginForm>
