@@ -48,11 +48,11 @@ export default function LoginPage({ setIsLoggedIn }) {
   useEffect(() => {
     if (emailRegex.test(email)) {
       setOnWarning(true);
-      if(passwordRegExp.test(password)){
+      if (passwordRegExp.test(password)) {
         setOnBtn(true);
+      } else {
+        setOnBtn(false);
       }
-    }else {
-      setOnBtn(false);
     }
   }, [email, password]);
   const handleOn = () => {
