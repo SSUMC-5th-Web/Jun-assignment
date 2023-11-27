@@ -1,0 +1,3 @@
+const export Weather = {
+    {"coord":{"lon":126.9778,"lat":37.5683},"weather":[{"id":501,"main":"Rain","description":"moderate rain","icon":"10d"},{"id":701,"main":"Mist","description":"mist","icon":"50d"}],"base":"stations","main":{"temp":279.77,"feels_like":277.91,"temp_min":278.81,"temp_max":280.84,"pressure":1021,"humidity":87},"visibility":3000,"wind":{"speed":2.57,"deg":140},"rain":{"1h":1.03},"clouds":{"all":100},"dt":1700101766,"sys":{"type":1,"id":8105,"country":"KR","sunrise":1700086330,"sunset":1700122891},"timezone":32400,"id":1835848,"name":"Seoul","cod":200}
+}
