@@ -3,7 +3,6 @@ import Home from "./pages/Home";
 import Header from "./Components/Header";
 import Movies from "./pages/Movies";
 import TV from "./pages/TV";
-import Celebirity from "./pages/Celebirity";
 import MovieDetail from "./pages/MovieDetail";
 import NotFound from "./pages/NotFound";
 import LoginPage from "./pages/LoginPage";
